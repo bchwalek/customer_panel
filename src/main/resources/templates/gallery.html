@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/gallery-grid.css" th:href="@{/css/gallery-grid.css}"/>
+    <link rel="stylesheet" href="../static/css/baguetteBox.min.css" th:href="@{/css/baguetteBox.min.css}"/>
+</head>
+
+<body>
+
+    <div class="container gallery-container" th:object="${sessionObject}">
+
+        <h1 th:text="${sessionObject.name}"></h1>
+
+        <p class="page-description text-center"></p>
+
+        <div class="tz-gallery">
+            <div class="row">
+                <div class="col-sm-6 col-md-4" th:each="value, stat : ${photoSessions}"><a th:href="@{/image/{id}/(id=${value.getId()})}" class="lightbox">
+                    <img th:src="@{/image/{id}/(id=${value.getId()})}" ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contaier" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+    <div class="table-bordered">
+        <table>
+        <tr><td th:each="value, stat : ${photoSessions}"><a th:href="@{/imagedelete/{id}/(id=${value.id})}" th:text="|  Usuń zdjęcie nr ${stat.index+1}|"></a></td> </tr>
+        </table>
+    </div>
+        <form th:action="@{/updatesession}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="sessionId"  th:value="${sessionObject.id}"/>
+            <div class="text-white pb-lg-5">
+                <input type="file" name="document" accept="image/jpeg" required multiple/>
+            </div>
+            <input type="submit" name="sign-in" value="Zapisz">
+        </form>
+    </div>
+
+
+<script th:src="@{/js/baguetteBox.js}"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        baguetteBox.run('.tz-gallery', {
+            captions: true, // display image captions.
+            buttons: 'auto', // arrows navigation
+            fullScreen: false,
+            noScrollbars: false,
+            bodyClass: 'baguetteBox-open',
+            titleTag: false,
+            async: false,
+            preload: 2,
+            animation: 'slideIn', // fadeIn or slideIn
+            verlayBackgroundColor: 'rgba(0,0,0,.8)'
+        });
+    });
+</script>
+
+
+</body>
+</html>

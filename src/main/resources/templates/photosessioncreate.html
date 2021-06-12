@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments::head"></head>
+
+
+<body id="page-top">
+
+<nav th:replace="fragments::navAdmin"></nav>
+
+<section class="masthead pt-lg-5">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <div class="box ">
+                <h2>Dodaj sesję fotograficzną:</h2>
+                <form th:action="@{/photoupload}" method="post" enctype="multipart/form-data">
+                    <div class="inputBox" th:object="${session}">
+                        <input type="text" name="name" required value="" onkeyup="this.setAttribute('value', this.value);" th:field="*{name}"/>
+                        <input type="hidden" name="customerId" id="customerId" th:value="${customerId}"/>
+                        <label>Nazwa Sesji</label>
+                    </div>
+                    <div class="text-white pb-lg-5">
+                        <input type="url" name="url" placeholder="https://example.com"/>
+                    </div>
+                    <div class="text-white pb-lg-5">
+                        <input type="file" name="document" accept="image/jpeg" required multiple/>
+                    </div>
+                    <input type="submit" name="sign-in" value="Zapisz">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Contact-->
+<section th:replace="fragments::contact"></section>
+<!-- Footer-->
+<footer th:replace="fragments::footer"></footer>
+<!-- Bootstrap core JS-->
+
+<script th:insert="fragments::script"></script>
+
+</body>
+</html>

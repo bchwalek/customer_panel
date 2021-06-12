@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments::head"></head>
+
+<body>
+
+<nav th:replace="fragments::navAdmin"></nav>
+<!-- Masthead-->
+<section class="masthead pt-lg-5">
+    <div class="container-fluid" style="padding-top: 5%">
+        <div class="col noPadding">
+            <h1 class="text-uppercase">Lista Adminów:</h1>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Login</th>
+                    <th scope="col" class="text-center">Akcja</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="customer, stat: ${customers}">
+                    <th scope="row" th:text="${stat.index+1}"></th>
+                    <td th:text="${customer.login}" class="text-black"></td>
+                    <td class="align-items-center justify-content-center flex-wrap">
+                        <!--                    <a th:href="@{/showcouncilman/{id}/(id=${councilman.getId()})}"-->
+                        <!--                       class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>-->
+                        <!--                    <a th:href="@{/updatecouncilman/{id}/(id=${councilman.getId()})}"-->
+                        <!--                       class="btn btn-warning rounded-0 text-light m-1">Edytuj</a>-->
+                        <a th:href="@{/deactivate/{id}/(id=${customer.getId()})}"
+                           class="btn-sm btn-danger rounded-0 text-light m-1" th:if="*{customer.isEnabled()==true}">Deaktywuj</a>
+                        <a th:href="@{/activate/{id}/(id=${customer.getId()})}"
+                           class="btn-sm btn-success rounded-0 text-light m-1" th:if="*{customer.isEnabled()==false}">Aktywuj</a>
+                        <a th:href="@{/delete/{id}/(id=${customer.getId()})}"
+                           class="btn-sm btn-danger rounded-0 text-light m-1">Usuń</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Contact-->
+<section th:replace="fragments::contact"></section>
+<!-- Footer-->
+<footer th:replace="fragments::footer"></footer>
+<!-- Bootstrap core JS-->
+
+<script th:insert="fragments::script"></script>
+</body>
+</html>

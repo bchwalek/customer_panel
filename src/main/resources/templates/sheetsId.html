@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments::head"></head>
+
+
+<body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Strona Główna</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                          <li class="nav-item"><a class="nav-link js-scroll-trigger" th:href="@{/logout}">Wyloguj</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Masthead-->
+<section class="masthead pt-lg-5">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <div class="box ">
+                <h2>Dodaj aktualny ID arkusza:</h2>
+                <form th:action="@{/sheetIdUpdate}" method="post">
+                    <div class="inputBox" th:object="${sheetId}">
+                        <input type="text" name="spreadsheetId" required value="" onkeyup="this.setAttribute('value', this.value);" th:field="*{spreadsheetId}"/>
+<!--                        <input type="hidden" name="id" id="id" th:value="${sheetId.id}"/>-->
+                        <label>Nazwa Sesji</label>
+                    </div>
+                    <input type="submit" name="sign-in" value="Zapisz">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Contact-->
+<section th:replace="fragments::contact"></section>
+<!-- Footer-->
+<footer th:replace="fragments::footer"></footer>
+<!-- Bootstrap core JS-->
+
+<script th:insert="fragments::script"></script>
+
+</body>
+</html>

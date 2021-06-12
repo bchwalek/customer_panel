@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments::head"></head>
+
+<body>
+<header class="card-img"  style="padding-top: 1rem; background-color: yellow" th:object="${id}">
+    <img th:src="@{/userimage/{id}/(id=${id})}" class="img-fluid" style="width: 100%"/>
+</header>
+<div class="container-fluid" style="background-image: linear-gradient(yellow, orange, darkorange)">
+
+
+
+    <div class="container-fluid pt-2">
+        <div class="table-responsive">
+            <table class="table-bordered fixed_header col-lg-5" style="background-color: white">
+                <tr th:each="row : ${values}">
+                    <td th:each="con : ${row}" th:text="${con}" style="color: #747474; font-weight: bold"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script th:insert="fragments::script"></script>
+</body>
+</html>
