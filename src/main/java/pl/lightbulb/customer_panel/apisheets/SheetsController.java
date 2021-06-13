@@ -14,8 +14,6 @@ import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.ValueRange;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,17 +21,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.lightbulb.customer_panel.Photo;
-import pl.lightbulb.customer_panel.PhotoService;
-import pl.lightbulb.customer_panel.User;
-import pl.lightbulb.customer_panel.UserService;
+import pl.lightbulb.customer_panel.photo.PhotoService;
+import pl.lightbulb.customer_panel.user.User;
+import pl.lightbulb.customer_panel.user.UserService;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor

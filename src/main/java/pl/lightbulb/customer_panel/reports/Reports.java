@@ -2,7 +2,7 @@ package pl.lightbulb.customer_panel.reports;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.lightbulb.customer_panel.User;
+import pl.lightbulb.customer_panel.user.User;
 
 import javax.persistence.*;
 import java.util.Date;

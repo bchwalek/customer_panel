@@ -1,11 +1,8 @@
-package pl.lightbulb.customer_panel;
+package pl.lightbulb.customer_panel.photo;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
-import pl.lightbulb.customer_panel.PhotoRepository;
-import pl.lightbulb.customer_panel.Session;
-import pl.lightbulb.customer_panel.Photo;
+import pl.lightbulb.customer_panel.session.Session;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +27,7 @@ public class PhotoService {
     }
 
 
-    Optional<Photo> findById (Long id){
+   public Optional<Photo> findById (Long id){
         return photoRepository.findById(id);
     }
 

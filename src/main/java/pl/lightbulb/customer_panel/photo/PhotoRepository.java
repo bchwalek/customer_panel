@@ -1,7 +1,8 @@
-package pl.lightbulb.customer_panel;
+package pl.lightbulb.customer_panel.photo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import pl.lightbulb.customer_panel.session.Session;
 
 import java.util.List;
 import java.util.Optional;
