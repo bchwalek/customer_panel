@@ -1,7 +1,9 @@
-package pl.lightbulb.customer_panel;
+package pl.lightbulb.customer_panel.photo;
 
 import lombok.Getter;
 import lombok.Setter;
+import pl.lightbulb.customer_panel.session.Session;
+
 import javax.persistence.*;
 
 @Getter

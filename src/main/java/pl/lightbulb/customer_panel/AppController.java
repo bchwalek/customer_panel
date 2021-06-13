@@ -12,8 +12,15 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import pl.lightbulb.customer_panel.photo.Photo;
+import pl.lightbulb.customer_panel.photo.PhotoService;
 import pl.lightbulb.customer_panel.reports.Reports;
 import pl.lightbulb.customer_panel.reports.ReportsService;
+import pl.lightbulb.customer_panel.session.Session;
+import pl.lightbulb.customer_panel.session.SessionService;
+import pl.lightbulb.customer_panel.user.User;
+import pl.lightbulb.customer_panel.user.UserService;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -233,6 +240,7 @@ public class AppController {
                                  HttpServletResponse response) throws IOException {
         response.setContentType("image/jpeg");
 
+//        Photo photo = photoService.findById(Long.parseLong(id)).get();
         Photo photo = photoService.findById(Long.parseLong(id)).get();
         InputStream is = new ByteArrayInputStream(photo.getContent());
         IOUtils.copy(is, response.getOutputStream());

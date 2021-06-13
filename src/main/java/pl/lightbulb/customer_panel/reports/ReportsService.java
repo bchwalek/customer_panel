@@ -2,7 +2,7 @@ package pl.lightbulb.customer_panel.reports;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.lightbulb.customer_panel.User;
+import pl.lightbulb.customer_panel.user.User;
 
 import java.util.List;
 import java.util.Optional;

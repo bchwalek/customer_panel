@@ -1,8 +1,9 @@
-package pl.lightbulb.customer_panel;
+package pl.lightbulb.customer_panel.user;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.lightbulb.customer_panel.user.User;
+import pl.lightbulb.customer_panel.user.UserRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
