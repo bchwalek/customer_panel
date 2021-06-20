@@ -10,8 +10,8 @@ import pl.lightbulb.customer_panel.user.UserService;
 @Service
 @AllArgsConstructor
 public class UserDeatailsServiceImp implements UserDetailsService {
-    private final UserService userService;
 
+    private final UserService userService;
 
 
     @Override
