@@ -165,7 +165,8 @@ public class AppController {
 
         User user = userService.findById(id).get();
 
-        photoService.delete(user.getPhoto());
+        if(user.getPhoto()!=null){
+        photoService.delete(user.getPhoto());}
 
         List<Session> sessions =  sessionService.userSession(user);
 
