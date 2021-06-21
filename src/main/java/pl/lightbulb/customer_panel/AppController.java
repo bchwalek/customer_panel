@@ -89,7 +89,7 @@ public class AppController {
     @GetMapping("/updateuser/{id}")
     public String updateUserForm(Model model, @PathVariable Long id) {
         model.addAttribute("userUpdate", userService.findById(id).get());
-        return "/updateuserform";
+        return "updateuserform";
     }
 
     @Transactional
@@ -267,6 +267,7 @@ public class AppController {
 //        if(!userlogged.getId().equals(id)||!userlogged.getRole().equals("ROLE_ADMIN")){
 //            return "redirect:/login";
 //        }
+
         User user = userService.findById(id).get();
         List<Session> sessions = sessionService.userSession(user);
         List<Reports> reports = reportsService.userReports(user);
