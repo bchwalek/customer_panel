@@ -68,7 +68,8 @@ public class SheetsController {
     public String getSheet(Model model, @PathVariable String range) throws IOException, GeneralSecurityException {
 
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        final String spreadsheetId = sheetsIdService.get(1L).get().getSpreadsheetId();
+        List<SheetsId> sheets = sheetsIdService.getAll();
+        final String spreadsheetId = sheets.get(0).getSpreadsheetId();
 
         Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
                 .setApplicationName(APPLICATION_NAME)
@@ -93,13 +94,13 @@ public class SheetsController {
         return "sheetsId";
     }
 
-    @PostMapping("/sheetIdUpdate")
-    public String updateSheetsId(@ModelAttribute("spreadsheetId") String spreadsheetId, BindingResult bindingResult){
-        SheetsId sheetsId = sheetsIdService.get(1L).get();
-        sheetsId.setSpreadsheetId(spreadsheetId);
-        sheetsIdService.update(sheetsId);
-        return "sheets";
-    }
+//    @PostMapping("/sheetIdUpdate")
+//    public String updateSheetsId(@ModelAttribute("spreadsheetId") String spreadsheetId, BindingResult bindingResult){
+//        SheetsId sheetsId = sheetsIdService.get(1L).get();
+//        sheetsId.setSpreadsheetId(spreadsheetId);
+//        sheetsIdService.update(sheetsId);
+//        return "sheets";
+//    }
 
 //"1yOFS8du3Cikw2Yat9bf-2maKTFgyTkrwh-IEB3lfqXk"
 
