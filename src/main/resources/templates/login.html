@@ -17,10 +17,11 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container d-flex h-100 align-items-center">
-                <div class="mx-auto text-center">
-                    <div class="box">
-                        <h2>Lightbulb Creative!</h2>
+            <div class="container-fluid d-flex h-100 align-items-center">
+                <div class="mx-auto text-center" >
+                    <div class="box img-fluid">
+<!--                        style="background-color: yellow; opacity: 0.2"-->
+                        <h2>Witamy w Lightbulb Creative!</h2>
                         <form th:action="@{/login}" method="post">
                             <div class="inputBox">
                                 <input type="text" name="username" required onkeyup="this.setAttribute('value', this.value);" value=""/>
