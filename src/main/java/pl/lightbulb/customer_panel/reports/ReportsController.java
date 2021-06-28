@@ -56,7 +56,7 @@ public class ReportsController {
         return "redirect:/showcustomer";
     }
 
-    @GetMapping("/downlad/{id}")
+    @GetMapping("/download/{id}")
     public void dwonFile(@PathVariable("id") Long id, HttpServletResponse response) throws Exception {
         Optional<Reports> resault = reportsService.findById(id);
         if(!resault.isPresent()){

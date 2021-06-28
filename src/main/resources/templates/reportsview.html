@@ -38,14 +38,15 @@
                                     <tbody>
                                     <tr th:each="value : ${userReports}">
                                         <td th:text="${value.reportName}"></td>
-                                        <td><a th:href="@{/downlad/{id}/(id=${value.getId()})}"><img
-                                                th:src="@{/images/pdf.png}" width="35"
-                                                th:text="|*{#numbers.formatInteger(value.size, 4, 'COMMA')} bytes|"/></a>
+                                        <td><a th:href="@{/download/{id}/(id=${value.getId()})}"><img
+                                                 th:src="@{/images/download.png}" width="35"/>
+                                        </a>
+<!--                                            th:text="|*{#numbers.formatInteger(value.size, 4, 'COMMA')} bytes|"-->
                                         </td>
                                         <td scope="row" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"
                                             class="text-center">
                                             <a th:href="@{/deletereport/{id}/(id=${value.id})}"><img
-                                                    src="../static/images/ikonaX.png" th:src="@{/images/ikonaX.png}"
+                                                     th:src="@{/images/ikonaX.png}"
                                                     width="35"/></a></td>
                                     </tr>
                                     </tbody>
