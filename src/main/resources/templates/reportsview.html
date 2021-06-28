@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+<head th:replace="fragments::head"></head>
+
+
+<body id="page-top">
+<nav th:replace="fragments::navCustomer"></nav>
+<!-- Masthead-->
+<section class="customer-section">
+
+</section>
+<section>
+
+    <div class="container-fluid">
+        <!--<div class="container" style="position: center">-->
+        <div class="row" style="justify-content: center;">
+
+
+            <div class="container col-lg-12 pb-3" style="background-color: white">
+                <div class="pt-lg-3">
+                    <div class="card" style="border: #F9E04B; border-style: solid; background: transparent">
+                        <div class="card-body" style="background: transparent">
+                            <h5 class="card-title text-center" th:text="|Raporty:|"
+                                style="font-family: 'Lohit Gujarati'; font-weight: bold"></h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover pt-lg-5"
+                                       style="background: transparent; border: #F9E04B">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th>Nazwa Raportu:</th>
+                                        <th>Pobierz</th>
+                                        <th th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Usuń</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="value : ${userReports}">
+                                        <td th:text="${value.reportName}"></td>
+                                        <td><a th:href="@{/downlad/{id}/(id=${value.getId()})}"><img
+                                                th:src="@{/images/pdf.png}" width="35"
+                                                th:text="|*{#numbers.formatInteger(value.size, 4, 'COMMA')} bytes|"/></a>
+                                        </td>
+                                        <td scope="row" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"
+                                            class="text-center">
+                                            <a th:href="@{/deletereport/{id}/(id=${value.id})}"><img
+                                                    src="../static/images/ikonaX.png" th:src="@{/images/ikonaX.png}"
+                                                    width="35"/></a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+</section>
+<!--</div>-->
+
+
+<!-- Contact-->
+<section th:replace="fragments::contact"></section>
+<!-- Footer-->
+<footer th:replace="fragments::footer"></footer>
+<!-- Bootstrap core JS-->
+
+<script th:insert="fragments::script"></script>
+
+
+</body>
+</html>

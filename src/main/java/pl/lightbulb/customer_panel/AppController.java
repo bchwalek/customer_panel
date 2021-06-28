@@ -270,16 +270,38 @@ public class AppController {
 //        }
 
         User user = userService.findById(id).get();
-        List<Session> sessions = sessionService.userSession(user);
-        List<Reports> reports = reportsService.userReports(user);
 
 
-        model.addAttribute("photoSessions", sessions);
-        model.addAttribute("userReports", reports);
+        model.addAttribute("customerId", id);
         model.addAttribute("sheetName", user.getSheetName());
 
 
         return "customerview";
+    }
+
+    @Secured({"ROLE_CUSTOMER", "ROLE_ADMIN"})
+    @GetMapping("customer/reports/{id}")
+    public String customerReports(@PathVariable Long id, Model model) {
+
+
+        User user = userService.findById(id).get();
+        List<Reports> reports = reportsService.userReports(user);
+        model.addAttribute("userReports", reports);
+
+
+        return "reportsview";
+    }
+
+    @Secured({"ROLE_CUSTOMER", "ROLE_ADMIN"})
+    @GetMapping("customer/photos/{id}")
+    public String customerPhotoSession(@PathVariable Long id, Model model) {
+
+
+        User user = userService.findById(id).get();
+        List<Session> sessions = sessionService.userSession(user);
+        model.addAttribute("photoSessions", sessions);
+
+        return "photoSessionView";
     }
 
     @GetMapping("/session/{id}")
