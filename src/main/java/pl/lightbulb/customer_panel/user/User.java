@@ -1,4 +1,4 @@
-package pl.lightbulb.customer_panel.user;
+ package pl.lightbulb.customer_panel.user;
 
 import lombok.Getter;
 import lombok.Setter;

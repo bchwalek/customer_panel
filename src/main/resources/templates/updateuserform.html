@@ -11,28 +11,30 @@
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
             <div class="box">
-                <h2>TWORZENIE PROFILU UŻYTKOWNIKA</h2>
+                <div class="text-center pb-4">
+                <h2>EDYCJA PROFILU UŻYTKOWNIKA</h2>
+                <h6>Uzupełnij tylko te pola, gdzie dane chcesz zmienić!</h6>
+                </div>
                 <form th:action="@{/updateuser}" method="post" th:object="${userUpdate}" enctype="multipart/form-data">
                     <div class="inputBox">
                         <input type="hidden" name="id" required onkeyup="this.setAttribute('value', this.value);"
                                th:field="*{id}"/>
-                        <label>Nadaj Login</label>
                     </div>
                     <div class="inputBox">
                         <input type="text" name="login" required value="" onkeyup="this.setAttribute('value', this.value);"
                                th:field="*{login}"/>
-                        <label>Nadaj Login</label>
+                        <label>Nadaj Nowy Login</label>
                     </div>
                     <div class="inputBox">
                         <input type="password" name="password"  value=""
                                onkeyup="this.setAttribute('value', this.value);" th:field="*{password}"/>
-                        <label>Nadaj Hasło</label>
+                        <label>Nadaj Nowe Hasło - możesz pozostawić puste!</label>
                     </div>
 
                     <div class="inputBox">
                         <input type="text" name="sheetName" value=""
                                onkeyup="this.setAttribute('value', this.value);" th:field="*{sheetName}"/>
-                        <label>Nazwa Arkusza</label>
+                        <label>Nowa Nazwa Arkusza</label>
                     </div>
                     <div class="text-white pb-lg-5">
                         <input type="file" name="document" accept="image/*"/>
@@ -44,7 +46,7 @@
                         <input type="radio" name="role" th:field="*{role}" value="ROLE_CUSTOMER"/> KLIENT
                     </div>
 
-                    <input type="submit" name="sign-in" value="Utwórz">
+                    <input type="submit" name="sign-in" value="Utwórz" style="background-color: yellow; color: black">
                 </form>
             </div>
         </div>
