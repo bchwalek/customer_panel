@@ -9,6 +9,9 @@
 <!-- Masthead-->
 <section class="masthead pt-lg-5">
     <div class="container-fluid" style="padding-top: 5%">
+
+        <div th:text="|Aktualna wersja strategii: ${sheetsId}|"> </div><a th:href="@{/sheetsId}" class="btn ui-icon-background">ZMIEŃ</a>
+
         <div class="col noPadding">
             <h1 class="text-uppercase">Lista Klientów:</h1>
         </div>

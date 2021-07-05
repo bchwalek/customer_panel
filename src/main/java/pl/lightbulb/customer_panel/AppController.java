@@ -12,6 +12,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import pl.lightbulb.customer_panel.apisheets.SheetsId;
+import pl.lightbulb.customer_panel.apisheets.SheetsIdService;
 import pl.lightbulb.customer_panel.photo.Photo;
 import pl.lightbulb.customer_panel.photo.PhotoService;
 import pl.lightbulb.customer_panel.reports.Reports;
@@ -36,6 +38,7 @@ public class AppController {
     private final PhotoService photoService;
     private final SessionService sessionService;
     private final ReportsService reportsService;
+    private final SheetsIdService sheetsIdService;
 
 
     @GetMapping("/login")
@@ -64,6 +67,7 @@ public class AppController {
     @Transactional
     @PostMapping("/adduser")
     public String addUser(User user, @RequestParam("document") MultipartFile multipartFile, BindingResult bindingResult) throws IOException {
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setIsDeactivate(false);
 
@@ -123,6 +127,8 @@ public class AppController {
 
     @GetMapping("/showcustomer")
     public String showallcustomer(Model model) {
+
+        model.addAttribute("sheetsId", sheetsIdService.get(1L).get().getSpreadsheetId());
         model.addAttribute("customers", userService.findByRole("ROLE_CUSTOMER"));
 
         return "showcustomer";
@@ -218,7 +224,7 @@ public class AppController {
         return "redirect:/customer/"+id;
     }
 
-    @PostMapping("updatesession")
+    @PostMapping("/updatesession")
     public String sessionUpdate(@RequestParam("sessionId") String id, @RequestParam("document") List<MultipartFile> multipartFiles) throws IOException {
 
        Session session = sessionService.findById(Long.parseLong(id)).get();

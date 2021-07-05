@@ -94,13 +94,13 @@ public class SheetsController {
         return "sheetsId";
     }
 
-//    @PostMapping("/sheetIdUpdate")
-//    public String updateSheetsId(@ModelAttribute("spreadsheetId") String spreadsheetId, BindingResult bindingResult){
-//        SheetsId sheetsId = sheetsIdService.get(1L).get();
-//        sheetsId.setSpreadsheetId(spreadsheetId);
-//        sheetsIdService.update(sheetsId);
-//        return "sheets";
-//    }
+    @PostMapping("/sheetIdUpdate")
+    public String updateSheetsId(@ModelAttribute("spreadsheetId") String spreadsheetId, BindingResult bindingResult){
+        SheetsId sheetsId = sheetsIdService.get(1L).get();
+        sheetsId.setSpreadsheetId(spreadsheetId);
+        sheetsIdService.update(sheetsId);
+        return "sheets";
+    }
 
 //"1yOFS8du3Cikw2Yat9bf-2maKTFgyTkrwh-IEB3lfqXk"
 

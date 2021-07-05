@@ -17,9 +17,9 @@ public class SheetsIdService {
       return  sheetsRepository.save(sheets);
     }
 
-//    Optional<SheetsId> get(Long id){
-//        return sheetsRepository.findById(id);
-//    }
+    public Optional<SheetsId> get(Long id){
+        return sheetsRepository.findById(id);
+    }
 
     List<SheetsId> getAll(){
        return sheetsRepository.findAll();

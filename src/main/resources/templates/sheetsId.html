@@ -19,13 +19,12 @@
 <section class="masthead pt-lg-5">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-            <div class="box ">
+            <div class="box img-fluid">
                 <h2>Dodaj aktualny ID arkusza:</h2>
                 <form th:action="@{/sheetIdUpdate}" method="post">
                     <div class="inputBox" th:object="${sheetId}">
                         <input type="text" name="spreadsheetId" required value="" onkeyup="this.setAttribute('value', this.value);" th:field="*{spreadsheetId}"/>
-<!--                        <input type="hidden" name="id" id="id" th:value="${sheetId.id}"/>-->
-                        <label>Nazwa Sesji</label>
+                        <label>ID ARKUSZA</label>
                     </div>
                     <input type="submit" name="sign-in" value="Zapisz">
                 </form>
