@@ -43,7 +43,6 @@ public class SheetsController {
     private static final String CREDENTIALS_FILE_PATH = "/static/credentials.json";
 
     private final SheetsIdService sheetsIdService;
-    private final PhotoService photoService;
     private final UserService userService;
 
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {

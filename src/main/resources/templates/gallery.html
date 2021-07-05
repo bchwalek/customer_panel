@@ -13,35 +13,45 @@
 
 <body>
 
-    <div class="container gallery-container" th:object="${sessionObject}">
+<div class="container gallery-container" th:object="${sessionObject}">
 
-        <h1 th:text="${sessionObject.name}"></h1>
+    <h1 th:text="${sessionObject.name}"></h1>
 
-        <p class="page-description text-center"></p>
+    <p class="page-description text-center"></p>
 
-        <div class="tz-gallery">
-            <div class="row">
-                <div class="col-sm-6 col-md-4" th:each="value, stat : ${photoSessions}"><a th:href="@{/image/{id}/(id=${value.getId()})}" class="lightbox">
-                    <img th:src="@{/image/{id}/(id=${value.getId()})}" ></a>
-                </div>
+    <div class="tz-gallery">
+        <div class="row">
+            <div class="col-sm-6 col-md-4" th:each="value, stat : ${photoSessions}"><a
+                    th:href="@{/image/{id}/(id=${value.getId()})}" class="lightbox">
+                <img th:src="@{/image/{id}/(id=${value.getId()})}"></a>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="contaier" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-    <div class="table-bordered">
-        <table>
-        <tr><td th:each="value, stat : ${photoSessions}"><a th:href="@{/imagedelete/{id}/(id=${value.id})}" th:text="|  Usuń zdjęcie nr ${stat.index+1}|"></a></td> </tr>
+<div class="container-fluid" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+
+    <div>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td th:each="value, stat : ${photoSessions}"><a th:href="@{/imagedelete/{id}/(id=${value.id})}"
+                                                                th:text="|  Usuń zdjęcie nr ${stat.index+1}|"></a></td>
+            </tr>
+            </tbody>
         </table>
     </div>
+
+    <div>
         <form th:action="@{/updatesession}" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="sessionId"  th:value="${sessionObject.id}"/>
+            <input type="hidden" name="sessionId" th:value="${sessionObject.id}"/>
             <div class="text-white pb-lg-5">
                 <input type="file" name="document" accept="image/jpeg" required multiple/>
             </div>
             <input type="submit" name="sign-in" value="Zapisz">
         </form>
     </div>
+</div>
 
 
 <script th:src="@{/js/baguetteBox.js}"></script>

@@ -30,7 +30,7 @@
                     <td th:text="${stat.index+1}"></td>
                     <td th:text="${customer.login}" class="text-black"></td>
                     <td class=" align-items-center justify-content-center flex-wrap">
-                        <a th:href="@{/photoupload/{id}/(id=${customer.getId()})}"
+                        <a th:href="@{/sessioncreate/{id}/(id=${customer.getId()})}"
                            class="btn-sm btn-info rounded-0 text-light m-1">Sesja Foto</a>
                         <a th:href="@{/addreports/{id}/(id=${customer.getId()})}"
                            class="btn-sm btn-info rounded-0 text-light m-1">Raporty</a>

@@ -13,7 +13,7 @@
         <div class="mx-auto text-center">
             <div class="box ">
                 <h2>Dodaj sesję fotograficzną:</h2>
-                <form th:action="@{/photoupload}" method="post" enctype="multipart/form-data">
+                <form th:action="@{/sessioncreate}" method="post" enctype="multipart/form-data">
                     <div class="inputBox" th:object="${session}">
                         <input type="text" name="name" required value="" onkeyup="this.setAttribute('value', this.value);" th:field="*{name}"/>
                         <input type="hidden" name="customerId" id="customerId" th:value="${customerId}"/>
