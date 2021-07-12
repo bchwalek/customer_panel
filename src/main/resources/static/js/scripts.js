@@ -83,3 +83,7 @@ const check = function() {
         document.getElementById('message').innerHTML = 'Hasła są różne';
     }
 }
+
+function goBack() {
+    window.history.back();
+}

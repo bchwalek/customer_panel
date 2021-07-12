@@ -21,7 +21,7 @@ public class PhotoController {
     private final UserService userService;
     private final PhotoService photoService;
 
-
+    @Secured({"ROLE_CUSTOMER", "ROLE_ADMIN"})
     @GetMapping("/image/{id}")
     public void showImageGallery(@PathVariable String id,
                           HttpServletResponse response) throws IOException {
@@ -33,6 +33,7 @@ public class PhotoController {
 
     }
 
+    @Secured({"ROLE_CUSTOMER", "ROLE_ADMIN"})
     @GetMapping("/userimage/{id}")
     public void showUserSheetImage(@PathVariable Long id,
                               HttpServletResponse response) throws IOException {

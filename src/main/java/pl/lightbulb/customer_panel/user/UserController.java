@@ -217,7 +217,8 @@ public class UserController {
 
     @Secured({"ROLE_CUSTOMER", "ROLE_ADMIN"})
     @PostMapping("/changepassword")
-    public String changePassword(@RequestParam("oldPass") String oldPass,
+    public String changePassword(Model model,
+                                 @RequestParam("oldPass") String oldPass,
                                  @RequestParam("newPass") String newPass,
                                  @AuthenticationPrincipal User loggedUser){
 
@@ -231,6 +232,10 @@ public class UserController {
         if(passwordEncoder.matches(oldPass, user.getPassword())){
             user.setPassword(passwordEncoder.encode(newPass));
             userService.addUser(user);
+        } else  {
+
+            model.addAttribute("wrong", "Wprowadzono Błędne Hasło");
+            return "changepassword";
         }
 
         return "redirect:/customer/"+loggedUser.getId();

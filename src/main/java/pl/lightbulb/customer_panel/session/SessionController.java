@@ -59,6 +59,7 @@ public class SessionController {
         return "redirect:/session/"+id;
     }
 
+    @Secured({"ROLE_CUSTOMER", "ROLE_ADMIN"})
     @GetMapping("/session/{id}")
     public String photoSession(@PathVariable("id") Long id, Model model) {
 

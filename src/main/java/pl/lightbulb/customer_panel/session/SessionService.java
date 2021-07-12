@@ -35,6 +35,7 @@ public class SessionService {
     public void delete(Session session) {
         sessionRepository.delete(session);
     }
+
     public void deleteAll (List<Session> sessions){
         sessionRepository.deleteAll(sessions);
     }
