@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="sessions")
 public class Session {
 
     @Id
