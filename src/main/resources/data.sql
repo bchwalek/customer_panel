@@ -1,4 +1,3 @@
-INSERT INTO user(login, is_Deactivate, password, role) VALUES ('CEO', false, '$2a$10$BfwPiUjacfXIoUaYHjS8FeaoypCnlvZVEOu6Yp/ob2DfWyiUs..eK','ROLE_SUPER');
 INSERT INTO user(login, is_Deactivate, password, role) VALUES ('user', true, '$2a$10$BfwPiUjacfXIoUaYHjS8FeaoypCnlvZVEOu6Yp/ob2DfWyiUs..eK','ROLE_CUSTOMER');
 INSERT INTO user(login, is_Deactivate, password, role) VALUES ('admin', false, '$2a$10$BfwPiUjacfXIoUaYHjS8FeaoypCnlvZVEOu6Yp/ob2DfWyiUs..eK','ROLE_ADMIN');
 INSERT INTO user(login, is_Deactivate, password, role) VALUES ('admin2', false, '$2a$10$BfwPiUjacfXIoUaYHjS8FeaoypCnlvZVEOu6Yp/ob2DfWyiUs..eK','ROLE_ADMIN');

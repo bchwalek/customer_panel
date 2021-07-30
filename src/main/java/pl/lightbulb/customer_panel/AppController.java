@@ -10,6 +10,10 @@ import pl.lightbulb.customer_panel.user.User;
 @RequiredArgsConstructor
 public class AppController {
 
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/login";
+    }
 
     @GetMapping("/login")
     public String login() {

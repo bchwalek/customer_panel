@@ -19,34 +19,37 @@
         <div class="row" style="justify-content: center;">
 
 
-            <div class="container col-lg-12 pb-3" style="background-color: white">
-                <div class="pt-lg-3">
-                    <div class="card" style="border: #F9E04B; border-style: solid; background: transparent">
+            <div class="container-fluid pb-3 " style="background-color: white">
+                <div class="pt-lg-3 d-flex justify-content-center">
+                    <div class="card col-6" style="border: #F9E04B; border-style: solid; background: transparent">
                         <div class="card-body" style="background: transparent">
                             <h5 class="card-title text-center" th:text="|Raporty:|"
-                                style="font-family: 'Lohit Gujarati'; font-weight: bold"></h5>
+                                style="font-family: 'Exo 2', sans-serif; font-weight: 700"></h5>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover pt-lg-5"
                                        style="background: transparent; border: #F9E04B">
                                     <thead class="thead-light">
                                     <tr>
-                                        <th>Nazwa Raportu:</th>
-                                        <th>Pobierz</th>
-                                        <th th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Usuń</th>
+                                        <!--                                        <th>Nazwa Raportu:</th>-->
+                                        <th style="font-family: 'Exo 2', sans-serif; font-weight: 600">Pobierz</th>
+                                        <th style="font-family: 'Exo 2', sans-serif; font-weight: 600"
+                                            th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Usuń
+                                        </th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr th:each="value : ${userReports}">
-                                        <td th:text="${value.reportName}"></td>
+                                        <!--                                        <td th:text="${value.reportName}"></td>-->
                                         <td><a th:href="@{/download/{id}/(id=${value.getId()})}"><img
-                                                 th:src="@{/images/download.png}" width="35"/>
+                                                th:src="@{/images/download.png}" width="35"
+                                                th:text="${value.reportName}" style="font-family: 'Exo 2', sans-serif; font-weight: 700"/>
                                         </a>
-<!--                                            th:text="|*{#numbers.formatInteger(value.size, 4, 'COMMA')} bytes|"-->
+                                            <!--                                            th:text="|*{#numbers.formatInteger(value.size, 4, 'COMMA')} bytes|"-->
                                         </td>
                                         <td scope="row" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"
                                             class="text-center">
                                             <a th:href="@{/deletereport/{id}/(id=${value.id})}"><img
-                                                     th:src="@{/images/ikonaX.png}"
+                                                    th:src="@{/images/ikonaX.png}"
                                                     width="35"/></a></td>
                                     </tr>
                                     </tbody>

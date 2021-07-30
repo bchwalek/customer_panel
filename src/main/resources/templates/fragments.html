@@ -3,6 +3,7 @@
 
 <head th:fragment="head">
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -14,6 +15,7 @@
     <script th:src="@{https://use.fontawesome.com/releases/v5.15.1/js/all.js}" crossorigin="anonymous"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet"/>
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -36,13 +38,13 @@
 
 <nav th:fragment="navCustomer" class="navbar navbar-expand-lg navbar-light fixed-top" >
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color: black">Strona Główna</a>
+        <a class="navbar-brand js-scroll-trigger" href="https://www.lightbulb.pl" style="font-family: 'Exo 2', sans-serif; font-size: 30px; font-weight: 700; color: #ffd618">lightbulb.pl</a>
         <div class="collapse navbar-collapse" >
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: black"
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: #263339; font-family: 'Exo 2', sans-serif; font-weight: 300;  font-size: 18px;"
                                         th:href="@{/changepassword}">Zmień Hasło</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" style="color: black" th:href="@{/logout}">Wyloguj</a></li>
-                <li><button onclick="goBack()">Wróć</button> </li>
+                <li class="nav-item"><a class="nav-font-logout nav-link js-scroll-trigger text-black" th:href="@{/logout}">Wyloguj</a></li>
+<!--                <li><button onclick="goBack()"><img src="../static/images/back.png" th:src="@{/images/back.png}" width="35" style="background-color: white"/></button> </li>-->
             </ul>
         </div>
     </div>
@@ -50,7 +52,7 @@
 
 <nav th:fragment="navAdmin" class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger text-black" href="https://www.lightbulb.pl/">Strona Główna</a>
+        <a class="navbar-brand js-scroll-trigger" href="https://www.lightbulb.pl" style="font-family: 'Exo 2', sans-serif; font-size: 30px; font-weight: 700; color: #ffd618">lightbulb.pl</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -59,11 +61,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" th:href="@{/showcustomer}">Klienci</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" th:href="@{/showadmin}">Admini</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" th:href="@{/adduser}">Dodaj użytkownika</a>
+                <li class="nav-item"><a class="nav-font-menu nav-link js-scroll-trigger text-black" th:href="@{/showcustomer}">Klienci</a></li>
+                <li class="nav-item"><a class="nav-font-menu nav-link js-scroll-trigger text-black" th:href="@{/showadmin}">Admini</a></li>
+                <li class="nav-item"><a class="nav-font-menu nav-link js-scroll-trigger text-black" th:href="@{/adduser}">Dodaj użytkownika</a>
                 </li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger text-black" th:href="@{/logout}">Wyloguj</a></li>
+                <li class="nav-item"><a class="nav-font-logout nav-link js-scroll-trigger text-black" th:href="@{/logout}">Wyloguj</a></li>
             </ul>
         </div>
     </div>

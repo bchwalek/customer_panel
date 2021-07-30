@@ -14,6 +14,7 @@ import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.ValueRange;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2ClientConfigurer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,7 +22,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.lightbulb.customer_panel.photo.PhotoService;
 import pl.lightbulb.customer_panel.user.User;
 import pl.lightbulb.customer_panel.user.UserService;
 
@@ -40,7 +40,7 @@ public class SheetsController {
 
 
     private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS_READONLY);
-    private static final String CREDENTIALS_FILE_PATH = "/static/credentials.json";
+    private static final String CREDENTIALS_FILE_PATH = "/credentials2.json";
 
     private final SheetsIdService sheetsIdService;
     private final UserService userService;
@@ -59,6 +59,8 @@ public class SheetsController {
                 .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
                 .setAccessType("offline")
                 .build();
+//        flow.newAuthorizationUrl().setRedirectUri("panel.lightbulb.pl/oauth2/authorize");
+//        flow.newAuthorizationUrl().setRedirectUri("urn:ietf:wg:oauth:2.0:oob");
         LocalServerReceiver receiver = new LocalServerReceiver.Builder().build();
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }

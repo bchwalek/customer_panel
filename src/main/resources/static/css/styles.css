@@ -10552,3 +10552,18 @@ div.desc {
   background-attachment: scroll;
   background-size: cover;
 }
+
+.nav-font-menu {
+  color: #263339;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.nav-font-logout {
+  color: #263339;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
